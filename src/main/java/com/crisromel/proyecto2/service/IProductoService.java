@@ -8,6 +8,10 @@ public interface IProductoService {
 
     public List<Producto> getProductos();
 
+
+
+    public List<Producto> getFaltaStock();
+
     public void saveProducto (Producto producto);
 
     public void deleteProducto(Long id);
@@ -15,5 +19,7 @@ public interface IProductoService {
     public Producto findProducto(Long id);
 
     public void editProducto(Producto producto);
+
+    public boolean checkSctock(Producto producto);
 
 }

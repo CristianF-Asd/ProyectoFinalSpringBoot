@@ -14,11 +14,27 @@ public class ProductosController {
     @Autowired
     private IProductoService service;
 
+
+
+    @GetMapping("/productos/falta_stock")
+    public List<Producto> getFaltaStock(){
+
+        return service.getFaltaStock();
+    }
+
+
     @GetMapping("/productos")
     public List<Producto> getProductos(){
 
         return service.getProductos();
     }
+
+    @GetMapping("/productos/{id}")
+    public Producto getProducto(@PathVariable Long id){
+        Producto producto = service.findProducto(id);
+        return producto;
+    }
+
     @PostMapping("/productos/crear")
     public String createProducto(@RequestBody Producto producto){
         service.saveProducto(producto);
